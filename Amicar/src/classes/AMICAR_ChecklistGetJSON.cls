@@ -3,6 +3,7 @@ Desarrollado por: Cloud Solutions
 Autor: Rodrigo López (RL)
 Proyecto: Amicar
 Descripción: Clase que deserializa JSON de servicio web "GET" de amicar-assistance
+PruebaKaren
 ---------------------------------------------------------------------------------
 No. Fecha                Autor                     Descripción
 ------ ---------- ---------------------------------------------------------------
