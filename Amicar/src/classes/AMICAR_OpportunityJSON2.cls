@@ -108,7 +108,7 @@ public class AMICAR_OpportunityJSON2 {
         public Integer loanTypeId {get;set;} 
         public Integer salesChannelId {get;set;} 
         public Decimal customerRate {get;set;} 
-        public Integer baseRate {get;set;} 
+        public Decimal baseRate {get;set;} 
         public Decimal dealerRate {get;set;} 
         public Integer termsFrom {get;set;} 
         public Integer termsTo {get;set;} 

@@ -39,32 +39,32 @@ private class AMICAR_ServicioRestOpportunityWS_Test {
 		);
 		insert vendedor;
 
-		Marca__c marcaVeh = new Marca__c(
-		  Name = 'MAZDA',         // Nombre de Marca
-		  Codigo_Marca__c = '831'  // Codigo_Marca
-		);
-		insert marcaVeh;
+		//Marca__c marcaVeh = new Marca__c(
+		  //Name = 'MAZDA',         // Nombre de Marca
+		  //Codigo_Marca__c = '831'  // Codigo_Marca
+		//);
+		//insert marcaVeh;
 
 		
 		Modelo_de_vehiculo__c modVeh = new Modelo_de_vehiculo__c(
 		  Modelo__c = 'CX-5',    // Modelo
 		  //Marca__c = '831',      // Marca
 		  Marca__c = '831',      // Marca
-		  Marca_Busqueda__c = marcaVeh.Id,
+		  //Marca_Busqueda__c = marcaVeh.Id,
 		  Codigo_modelo__c = '1146'  // Código modelo
 		);
 		insert modVeh;
 
-		marcaVeh = new Marca__c(
-			Name = 'HYUNDAI',
-			Codigo_Marca__c = '824'
-		);
-		insert marcaVeh;
+		//marcaVeh = new Marca__c(
+			//Name = 'HYUNDAI',
+			//Codigo_Marca__c = '824'
+		//);
+		//insert marcaVeh;
 
 		modVeh = new Modelo_de_vehiculo__c(
 		  Modelo__c = 'ELANTRA',    // Modelo
 		  Marca__c = '824',      // Marca
-		  Marca_Busqueda__c = marcaVeh.Id,
+		  //Marca_Busqueda__c = marcaVeh.Id,
 		  Codigo_modelo__c = '1147'  // Código modelo
 		);
 		insert modVeh;
@@ -245,7 +245,7 @@ private class AMICAR_ServicioRestOpportunityWS_Test {
 		Integer RloanTypeId = oppResp.LoanSimulationData.Rate.loanTypeId; 
 		Integer RsalesChannelId = oppResp.LoanSimulationData.Rate.salesChannelId; 
 		Decimal RcustomerRate = oppResp.LoanSimulationData.Rate.customerRate; 
-		Integer RbaseRate = oppResp.LoanSimulationData.Rate.baseRate; 
+		Decimal RbaseRate = oppResp.LoanSimulationData.Rate.baseRate; 
 		Decimal RdealerRate = oppResp.LoanSimulationData.Rate.dealerRate; 
 		Integer RtermsFrom = oppResp.LoanSimulationData.Rate.termsFrom; 
 		Integer RtermsTo = oppResp.LoanSimulationData.Rate.termsTo; 

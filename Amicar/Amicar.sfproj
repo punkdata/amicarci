@@ -27,6 +27,7 @@
     <Folder Include="staticresources\" />
     <Folder Include="staticresources\SiteSamples\" />
     <Folder Include="staticresources\SiteSamples\img\" />
+    <Folder Include="staticresources\TWS_Sync_Data\" />
     <Folder Include="triggers\" />
   </ItemGroup>
   <ItemGroup>
@@ -3809,6 +3810,9 @@
     <StaticZip Include="staticresources\SiteSamples">
       <SubType>StaticResourceZip</SubType>
     </StaticZip>
+    <StaticZip Include="staticresources\TWS_Sync_Data">
+      <SubType>StaticResourceZip</SubType>
+    </StaticZip>
   </ItemGroup>
   <ItemGroup>
     <StaticZipItem Include="staticresources\SiteSamples\img\clock.png">
@@ -3864,6 +3868,13 @@
       <SubType>StaticResourceZipItem</SubType>
       <StaticResource>SiteSamples</StaticResource>
       <StaticResourcePath>staticresources\SiteSamples\SiteStyles.css</StaticResourcePath>
+    </StaticZipItem>
+    <StaticZipItem Include="staticresources\TWS_Sync_Data\TWS_Sync_Data.twssd">
+      <SubType>StaticResourceZipItem</SubType>
+      <PhysicalRelativePath>resource-bundles\TWS_Sync_Data\TWS_Sync_Data.twssd</PhysicalRelativePath>
+      <StaticResource>TWS_Sync_Data</StaticResource>
+      <StaticResourcePath>staticresources\TWS_Sync_Data\TWS_Sync_Data.twssd</StaticResourcePath>
+      <MetadataType>StaticResourceZipItem</MetadataType>
     </StaticZipItem>
   </ItemGroup>
   <ItemGroup>
