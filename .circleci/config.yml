@@ -1,4 +1,4 @@
-
+ version: 2.1
  orbs:
   salesforce-sfdx: circleci/salesforce-sfdx@2.2.0
   jobs:
@@ -9,14 +9,10 @@
       - sfdx/install
       - sfdx/auth:
           defaultusername: karodrigla@gmail.com
-orbs:
-  sfdx: circleci/salesforce-sfdx@x.y
-version: 2.1
 workflows:
   basic-test:
     jobs:
       - create-open-delete
-	  
 	  jobs:
   install_authenticate:
     executor: sfdx/default
@@ -32,11 +28,8 @@ workflows:
 
             sfdx auth:list
           name: Run your SFDX commands here
-orbs:
-  sfdx: circleci/salesforce-sfdx@x.y
-version: 2.1
-workflows:
-  basic-test:
+- run: 
+basic-test:
     jobs:
       - install_authenticate
 	  description: >
@@ -142,4 +135,3 @@ steps:
         <<#parameters.apiVersion>>sfdx force:config:set
         apiVersion=<<parameters.apiVersion>><</parameters.apiVersion>>
       name: Authenticate with Salesforce
-	  
