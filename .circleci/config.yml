@@ -112,31 +112,3 @@ commands:
                             tar xJf sfdx-linux-amd64.tar.xz -C sfdx --strip-components 1
                             ./sfdx/install
                         name: Install SFDX - Standalone
-orbs:
-  slack: circleci/slack@4.1
-jobs:
-  build:
-    machine: true
-    steps:
-      - run: some build command
-      - slack/notify:
-          branch_pattern: main
-          event: fail
-          template: basic_fail_1
-      - slack/notify:
-          branch_pattern: amicarci
-          event: fail
-          mentions: '<@U8XXXXXXX>, @Karodrilab'
-          template: basic_fail_1
-workflows:
-  deploy_and_notify:
-    jobs:
-      - build:
-          context: slack-secrets
-      - deploy:
-          filters:
-            branches:
-              only:
-                - amicarci
-          requires:
-            - build
