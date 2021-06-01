@@ -1,4 +1,4 @@
-version: 2.1
+
  orbs:
   salesforce-sfdx: circleci/salesforce-sfdx@2.2.0
   jobs:
