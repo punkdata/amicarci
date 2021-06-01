@@ -19,7 +19,7 @@ commands:
                 type: env_var_name
             defaultdevhubusername:
             #${CIRCLE_PROJECT_REPONAME}-${CIRCLE_BRANCH}
-                default: ${karodrilab}-${amicarci}
+                default: ${karodrilab}-${master}
                 description: The username of your Dev Hub org that the force:org:create command defaults to. Used as alias.
                 type: string
             defaultusername:
