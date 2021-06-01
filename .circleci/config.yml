@@ -11,6 +11,7 @@
           defaultusername: karodrigla@gmail.com
 workflows:
   basic-test:
+ circleci-project-setup
     jobs:
       - create-open-delete
 	  jobs:
@@ -30,6 +31,28 @@ workflows:
 - run: 
 basic-test:
     jobs:
+
+    jobs:
+      - create-open-delete
+	  jobs:
+  install_authenticate:
+    executor: sfdx/default
+    steps:
+      - checkout
+      - sfdx/install
+      - sfdx/auth:
+          defaultusername: karodrigla@gmail.com
+      - run:
+          command: >
+            echo You now have access to the sfdx cli and may execute commands
+            against it.
+
+            sfdx auth:list
+          name: Run your SFDX commands here
+- run: 
+basic-test:
+    jobs:
+ main
       - install_authenticate
 	  description: >
   Authenticate with and configure the SFDX CLI after installation. This orb
@@ -86,12 +109,22 @@ steps:
                 echo "Authentication requires a base64 encoded server key to be provided as an evironment variable. Please ensure the <<parameters.jwtKey>> env var has been set correctly."
                 exit 1
               fi
+ circleci-project-setup
+main
               if [ -z $<<parameters.consumerKey>> ]; then
                 echo "Authentication requires a consumer key to be present. Please ensure the <<parameters.consumerKey>> env var has been set correctly."
                 exit 1
               fi
+ circleci-project-setup
               echo Creating jwt key file.
               echo
+
+
+              echo Creating jwt key file.
+
+              echo
+
+ main
               if [ -f ./server.key ]; then
                 echo "It appears you may have commited your server.key file. For your safety please never commit secrets to your code repository. We instead recommend utilizing environment variables for this purpose. You may wish to invalidate and regenerate your server key."
                 exit 1
@@ -116,12 +149,25 @@ steps:
         <<#parameters.instanceUrl>>sfdx force:config:set
         instanceUrl=<<parameters.instanceUrl>>
         --global<</parameters.instanceUrl>>
+ circleci-project-setup
         sfdx auth:jwt:grant --clientid $<<parameters.consumerKey>> \
         --jwtkeyfile ./server.key --username <<parameters.defaultusername>>
         <<#parameters.instanceUrl>>--instanceurl
         <<parameters.instanceUrl>><</parameters.instanceUrl>> \
         --setdefaultdevhubusername --setalias
         <<parameters.defaultdevhubusername>>
+
+
+        sfdx auth:jwt:grant --clientid $<<parameters.consumerKey>> \
+
+        --jwtkeyfile ./server.key --username <<parameters.defaultusername>>
+        <<#parameters.instanceUrl>>--instanceurl
+        <<parameters.instanceUrl>><</parameters.instanceUrl>> \
+
+        --setdefaultdevhubusername --setalias
+        <<parameters.defaultdevhubusername>>
+
+main
         <<#parameters.apiVersion>>sfdx force:config:set
         apiVersion=<<parameters.apiVersion>><</parameters.apiVersion>>
       name: Authenticate with Salesforce
